@@ -25,7 +25,7 @@ end
 
 M.load = function()
   if vim.version().minor < 8 then
-    vim.notify_once("gruvbox.nvim: you must use neovim 0.8 or higher")
+    vim.notify_once("gruvbox-dim.nvim: you must use neovim 0.8 or higher")
     return
   end
 
@@ -34,10 +34,10 @@ M.load = function()
     vim.cmd("hi clear")
   end
 
-  vim.g.colors_name = "gruvbox"
+  vim.g.colors_name = "gruvbox-dim"
   vim.o.termguicolors = true
 
-  local groups = require("gruvbox.groups").setup()
+  local groups = require("gruvbox-dim.groups").setup()
 
   -- add highlights
   for group, settings in pairs(groups) do

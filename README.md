@@ -1,53 +1,15 @@
-<div align="center">
-      <h1> <img src="https://i.postimg.cc/WpQzgxVh/plugin-Icon.png" width="80px"><br/>gruvbox.nvim</h1>
-     </div>
-<p align="center"> 
-      <a href="https://twitter.com/intent/user?screen_name=ellisonleao" target="_blank"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/ellisonleao?style=for-the-badge" style="vertical-align:center" ></a>
-      <a href="#"><img alt="Made with Lua" src="https://img.shields.io/badge/Made%20with%20Lua-blueviolet.svg?style=for-the-badge&logo=lua" style="vertical-align:center" /></a>
-</p>
+# gruvbox-dim
 
-A port of [gruvbox community](https://github.com/gruvbox-community/gruvbox) theme to lua with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) support!
-
-<p align="center">
-    <img src="https://i.postimg.cc/fy3tnGFt/gruvbox-themes.png" />
-</p>
-
-# Prerequisites
-
-Neovim 0.8.0+
-
-# Installing
-
-Using `packer`
-
-```lua
-use { "ellisonleao/gruvbox.nvim" }
-```
-
-# Basic Usage
-
-Inside `init.vim`
-
-```vim
-set background=dark " or light if you want light mode
-colorscheme gruvbox
-```
-
-Inside `init.lua`
-
-```lua
-vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
-```
+This is a dim version of [ellisonleao/gruvbox.vim](https://github.com/ellisonleao/gruvbox.nvim) designed for use with [folke/styler.nvim](https://github.com/folke/styler.nvim) to unfocus other open windows.
 
 # Configuration
 
-Additional settings for gruvbox are:
+Additional settings for gruvbox-dim are:
 
 ```lua
 -- setup must be called before loading the colorscheme
 -- Default options:
-require("gruvbox").setup({
+require("gruvbox-dim").setup({
   undercurl = true,
   underline = true,
   bold = true,
@@ -64,7 +26,6 @@ require("gruvbox").setup({
   dim_inactive = false,
   transparent_mode = false,
 })
-vim.cmd("colorscheme gruvbox")
 ```
 
 ## Overriding

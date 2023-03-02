@@ -1,4 +1,4 @@
--- gruvbox palette
+-- gruvbox-dim palette
 local M = {}
 
 M.colors = {
@@ -41,7 +41,7 @@ M.colors = {
 }
 
 M.get_base_colors = function(bg, contrast)
-  local config = require("gruvbox").config
+  local config = require("gruvbox-dim").config
   local p = M.colors
 
   for k, v in pairs(config.palette_overrides) do

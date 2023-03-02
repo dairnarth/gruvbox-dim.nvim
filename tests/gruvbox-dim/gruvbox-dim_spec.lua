@@ -1,5 +1,5 @@
 require("plenary.reload").reload_module("gruvbox", true)
-local gruvbox = require("gruvbox")
+local gruvbox = require("gruvbox-dim")
 
 describe("setup", function()
   it("works with default values", function()
