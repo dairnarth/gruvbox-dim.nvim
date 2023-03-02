@@ -1,6 +1,53 @@
 # gruvbox-dim
 
-This is a dim version of [ellisonleao/gruvbox.vim](https://github.com/ellisonleao/gruvbox.nvim) designed for use with [folke/styler.nvim](https://github.com/folke/styler.nvim) to unfocus other open windows.
+This is a dim version of [ellisonleao/gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) designed for use with [folke/styler.nvim](https://github.com/folke/styler.nvim) to unfocus other open windows.
+
+gruvbox.nvim does have a ```dim-inactive``` option, but this lowers contrast by brightening the background, rather than dimming the text.
+Many people seem happy with this approach, but I've always found it very distracting.
+This effect is more subtle (probably too subtle using ```vim.o.background = 'light'```).
+
+## Installation
+
+Install with your preferred package manager:
+
+```lua
+-- Packer
+use({
+  'dairnarth/gruvbox-dim.nvim',
+  config = function() require('gruvbox-dim').setup() end,
+})
+```
+
+## Usage
+
+With [styler.nvim](https://github.com/folke/styler.nvim) and [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) installed, these autocommands will 'focus' the current window by dimming all inactive windows:
+
+```lua
+vim.cmd.colorscheme('gruvbox')
+
+vim.api.nvim_create_augroup('focus', {clear = true})
+vim.api.nvim_create_autocmd({'WinEnter', 'FocusGained'}, {
+  callback = function()
+    require('styler').clear(0)
+  end,
+  group = 'focus'
+})
+vim.api.nvim_create_autocmd({'WinLeave', 'FocusLost'}, {
+  callback = function()
+    require('styler').set_theme(0, {
+      colorscheme = 'gruvbox-dim',
+      background = 'dark'
+    })
+  end,
+  group = 'focus'
+})
+```
+
+Or if you'd simply prefer a lower contrast gruvbox:
+
+```lua
+vim.cmd.colorscheme('gruvbox-dim')
+```
 
 # Configuration
 
